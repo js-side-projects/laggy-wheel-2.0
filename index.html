@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/prism.css">
 	<link rel="stylesheet" href="assets/css/sweetalert2.min.css">
 	<link rel="stylesheet" href="dist/superwheel.css">
@@ -15,141 +16,172 @@
 	<script src="assets/js/prism.js" data-manual></script>
 	<script src="assets/js/sweetalert2.min.js" data-manual></script>
 	<script src="assets/js/main.js"></script>
-	
 	<title>Star Of The Week | 123 Internet</title>
 </head>
 <body>
-	
-	<div class="home-intro blue-dark-bg height-vh" id="demo_spinner">
-		<div class="container-fluid">
-			<div class="container-xl">
-				<h1>Star Of The Week | Spinney Wheel</h1>
-				<div class="wheel mb-5"></div>
-				<ul class="intro-btn-group mb-5">
-				<li><button class="btn btn-primary btn-xl btn-block spin-to-win" type="button">Spin to win</button></li>
-				</ul>
-				<script>
-				jQuery(document).ready(function($){
-					
-					$('.wheel').superWheel({
-						slices: [
-							{
-								text    : 'Connor Ingold',
-								message : 'Joe Voted For Connor',
-								background   : '#364C62',
-								value     : 0
-							},{
-								text    : 'Tom Sarson',
-								message : 'Joe Voted For Tom Sarson',
-								background   : '#9575CD',
-								value     : 0
-							},{
-								text    : 'Joe Whittaker',
-								message : 'Joe Voted For Joe Whittaker',
-								background   : '#E67E22',
-								value     : 0
-							},{
-								text    : 'Tom Sarson',
-								message : 'Joe Voted For Tom Sarson',
-								background   : '#E74C3C',
-								value      : 0
-							},{
-								text    : 'Steve Hyatt',
-								message : 'Joe Voted For Steve Hyatt',
-								background   : '#2196F3',
-								color : '#fff',
-								value     : 0
-							},{
-								text    : 'Spin Again',
-								message : 'Give It Another Spin!',
-								background   : '#95A5A6',
-								value     : 0
-							}
-						],
-						
-						//======================================
-						//======================================
-						//=======    Wheel Parameters    =======
-						//======================================
-						//======================================
-						text : {
-							color: '#fff',
-							offset : 8,
-							letterSpacing: 0,
-							orientation: 'v',
-							arc: true
-						},
-						
-						slice : {
-							background : "#333",
-						},
-						
-						line:{
-							width : 6,
-							color : "#fefefe",
-						},
-						
-						outer : {
-							width : 10,
-							color : "#fefefe",
-						},
-						
-						inner : {
-							width : 8,
-							color : "#fefefe",
-						},
-						
-						width: 500,
-						duration: 8000,
-						
-					});
-					
-					var tick = new Audio('assets/media/tick.mp3');
-					
-					
-					$(document).on('click','.spin-to-win',function(e){
-						e.preventDefault();
-						$('.wheel').superWheel('start',0);
-						$(this).prop('disabled',true);
-					});
-					
-					$('.wheel').superWheel('onStart',function(results){
-						$('.spin-to-win').text('Spinning...');
-					});
-					
-					
-					$('.wheel').superWheel('onStep',function(results){
-						if (typeof tick.currentTime !== 'undefined')
-							tick.currentTime = 0;
-						tick.play();
-					});
-					
-					$('.wheel').superWheel('onComplete',function(results){
-						
-						if(results.value === 1){
-							swal({
-								type: 'success',
-								title: "Congratulations!", 
-								html: results.message+' <br><br><b>Discount : [ '+ results.discount+ ' ]</b>'
-							});
-						}else{
-							swal("Oops!", results.message, "error");
-						}
-						$('.spin-to-win:disabled').prop('disabled',false).text('Spin to win');
-					});
-					
-					
-				});
-				</script>
+
+	<!-- Header Section -->
+	<section id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<center>
+						<h1>Star Of The Week | Spinney Wheel</h1>
+						<p>Creative Branding, Graphic Design, Print & Expert Website Design / Development Services. Delivered by a professional and passionate team from a creative digital marketing agency with over 40 years’ combined experience.</p>
+						<button><a href="#">Some Button</a></button>
+					</center>
+				</div>
 			</div>
 		</div>
-	</div>
-	
+	</section>
 
-<footer class="footer text-center">
-	<div class="container">
-		<small class="copyright"><a href="https://www.123internet.agency/web" alt="Web Design Milton Keynes | Northampton" title="Web Design Milton Keynes | Northampton"> Web Design</a> &amp; <a href="https://www.123internet.agency/social" alt="Web Development Milton Keynes | Northampton" title="Web Development Milton Keynes | Northampton">Development</a> - <a href="https://www.123internet.agency" alt="Digital Marketing Agency Milton Keynes | Northampton" title="Digital Marketing Agency Milton Keynes | Northampton">123 Internet Group</a></small>
-	</div>
-</footer>
+	<!-- Wave Section -->
+	<section id="wave">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Content Section -->
+	<section id="wheel">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="wheel mb-5"></div>
+					<ul class="intro-btn-group mb-5">
+						<li><button class="btn btn-primary btn-xl btn-block spin-to-win" type="button">Spin to win</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		jQuery(document).ready(function($){
+			
+			$('.wheel').superWheel({
+				slices: [
+					{
+						text    : 'Connor Ingold',
+						message : 'Joe Voted For Connor',
+						background   : '#364C62',
+						value     : 0
+					},{
+						text    : 'Tom Sarson',
+						message : 'Joe Voted For Tom Sarson',
+						background   : '#9575CD',
+						value     : 0
+					},{
+						text    : 'Joe Whittaker',
+						message : 'Joe Voted For Joe Whittaker',
+						background   : '#E67E22',
+						value     : 0
+					},{
+						text    : 'Tom Sarson',
+						message : 'Joe Voted For Tom Sarson',
+						background   : '#E74C3C',
+						value      : 0
+					},{
+						text    : 'Steve Hyatt',
+						message : 'Joe Voted For Steve Hyatt',
+						background   : '#2196F3',
+						color : '#fff',
+						value     : 0
+					},{
+						text    : 'Spin Again',
+						message : 'Give It Another Spin!',
+						background   : '#95A5A6',
+						value     : 0
+					}
+				],
+				
+				//======================================
+				//======================================
+				//=======    Wheel Parameters    =======
+				//======================================
+				//======================================
+				text : {
+					color: '#fff',
+					offset : 8,
+					letterSpacing: 0,
+					orientation: 'v',
+					arc: true
+				},
+				
+				slice : {
+					background : "#333",
+				},
+				
+				line:{
+					width : 6,
+					color : "#fefefe",
+				},
+				
+				outer : {
+					width : 10,
+					color : "#fefefe",
+				},
+				
+				inner : {
+					width : 8,
+					color : "#fefefe",
+				},
+				
+				width: 500,
+				duration: 8000,
+				
+			});
+			
+			var tick = new Audio('assets/media/tick.mp3');
+			
+			
+			$(document).on('click','.spin-to-win',function(e){
+				e.preventDefault();
+				$('.wheel').superWheel('start',0);
+				$(this).prop('disabled',true);
+			});
+			
+			$('.wheel').superWheel('onStart',function(results){
+				$('.spin-to-win').text('Spinning...');
+			});
+			
+			
+			$('.wheel').superWheel('onStep',function(results){
+				if (typeof tick.currentTime !== 'undefined')
+					tick.currentTime = 0;
+				tick.play();
+			});
+			
+			$('.wheel').superWheel('onComplete',function(results){
+				
+				if(results.value === 1){
+					swal({
+						type: 'success',
+						title: "Congratulations!", 
+						html: results.message+' <br><br><b>Discount : [ '+ results.discount+ ' ]</b>'
+					});
+				}else{
+					swal("Oops!", results.message, "error");
+				}
+				$('.spin-to-win:disabled').prop('disabled',false).text('Spin to win');
+			});
+			
+			
+		});
+		</script>
+
+		<!-- Footer Section -->
+		<footer class="footer text-center">
+			<div class="container">
+				<small class="copyright"><a href="https://www.123internet.agency/web" alt="Web Design Milton Keynes | Northampton" title="Web Design Milton Keynes | Northampton"> Web Design</a> &amp; <a href="https://www.123internet.agency/social" alt="Web Development Milton Keynes | Northampton" title="Web Development Milton Keynes | Northampton">Development</a> - <a href="https://www.123internet.agency" alt="Digital Marketing Agency Milton Keynes | Northampton" title="Digital Marketing Agency Milton Keynes | Northampton">123 Internet Group</a></small>
+			</div>
+		</footer>
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
   </body>
 </html>
